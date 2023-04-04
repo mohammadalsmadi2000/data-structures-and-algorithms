@@ -3,4 +3,4 @@
 
 | CC                        | Summary 
 | :---                      |   :----:   
-|array-reverse              | [SQL Practice](./array-reverse/array-reverse.md)
+|array-reverse              | [array-reverse](./array-reverse/array-reverse.md)
