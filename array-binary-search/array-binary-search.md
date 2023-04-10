@@ -9,18 +9,14 @@ The binary search algorithm takes advantage of the fact that the input list is a
 ## Approach & Efficiency
 The binary search algorithm takes advantage of the fact that the input list is sorted, which allows it to quickly narrow down the possible locations of the target item. The algorithm has a time complexity of O(log n) because it divides the search space in half at each step, which reduces the search time significantly.
 
-## Problem Domain:
-We are given a sorted array of integers and a search key. Our task is to implement a binary search algorithm to search for the search key in the array. If the search key is found, we return the index of the element. If the element is not in the array, we return -1.
 
-Visual:
-Input:
-[4, 8, 15, 16, 23, 42], 15
-
-Output:
-2
 
 ## Approach:
 We will start by finding the middle element of the array. If this element matches the search key, we will return its index. If the middle element is greater than the search key, we will perform a binary search on the left half of the array. If the middle element is less than the search key, we will perform a binary search on the right half of the array. We will continue this process until we either find the search key or determine that it is not in the array.
+
+## Problem Domain:
+We are given a sorted array of integers and a search key. Our task is to implement a binary search algorithm to search for the search key in the array. If the search key is found, we return the index of the element. If the element is not in the array, we return -1.
+
 ## Visual
 ![binary-and-linear-search-animations](https://user-images.githubusercontent.com/60603704/230966462-7d17e971-723f-4a04-8406-1930bb8ba8db.gif)
 ## Algorithm:
