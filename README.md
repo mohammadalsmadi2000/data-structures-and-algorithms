@@ -6,5 +6,5 @@
 |array-reverse              | [array-reverse](./array-reverse/array-reverse.md)
 |array-insert-shift     | [array-insert-shift](./array-insert-shift/array-insert-shift.md)
 |array-binary-search    | [array-binary-search](./array-binary-search/array-binary-search.md)
-|linkedlist   | [linkedlist](./linkedlist/README.md)
+|linkedlist   | [linkedlist](./linked-list/README.md)
 
