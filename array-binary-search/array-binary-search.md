@@ -16,7 +16,6 @@ We will start by finding the middle element of the array. If this element matche
 
 ## Problem Domain:
 We are given a sorted array of integers and a search key. Our task is to implement a binary search algorithm to search for the search key in the array. If the search key is found, we return the index of the element. If the element is not in the array, we return -1.
-
 ## Visual
 ![binary-and-linear-search-animations](https://user-images.githubusercontent.com/60603704/230966462-7d17e971-723f-4a04-8406-1930bb8ba8db.gif)
 ## Algorithm:
