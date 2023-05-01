@@ -9,4 +9,5 @@
 |linkedlist   | [linkedlist](./linked-list/README.md)
 |linked-list-insertions   | [linked-list-insertions](./linked-list-insertions/Whiteboard.md)
 |linked-list-kth  | [linked-list-kth](./linked-list-kth/Whiteboard.md)
+|linked_list_zip  | [linked_list_zip](./linked_list_zip/Readme.md)
 
