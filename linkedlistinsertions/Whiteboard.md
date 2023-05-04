@@ -1,6 +1,6 @@
 # linked list insertions
 
-## Problem Domain
+# Problem Domain#
 We are asked to implement three methods for the Linked List class: append, insert before, and insert after. The append method should add a new node with the given value to the end of the list. The insert before method should add a new node with the given new value immediately before the first node that has the value specified. The insert after method should add a new node with the given new value immediately after the first node that has the value specified.
 
 ## Visual
