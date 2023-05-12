@@ -1,3 +1,7 @@
+from collections import deque
+
+# create a deque
+
 class Animal:
     """
     Represents an animal with a species and name.
@@ -29,8 +33,8 @@ class AnimalShelter:
         """
         Initializes an AnimalShelter object with empty lists for dogs and cats and an order counter.
         """
-        self.dogs = []
-        self.cats = []
+        self.dogs = deque()
+        self.cats = deque()
         self.order = 0
 
     def enqueue(self, animal):
@@ -55,20 +59,20 @@ class AnimalShelter:
         """
         if pref == 'dog':
             if self.dogs:
-                return self.dogs.pop(0)
+                return self.dogs.popleft()
         elif pref == 'cat':
             if self.cats:
-                return self.cats.pop(0)
+                return self.cats.popleft()
         else:
             if self.dogs and self.cats:
                 if self.dogs[0].order < self.cats[0].order:
-                    return self.dogs.pop(0)
+                    return self.dogs.popleft()
                 else:
-                    return self.cats.pop(0)
+                    return self.cats.popleft()
             elif self.dogs:
-                return self.dogs.pop(0)
+                return self.dogs.popleft()
             elif self.cats:
-                return self.cats.pop(0)
+                return self.cats.popleft()
         return None
 
     def __str__(self):
