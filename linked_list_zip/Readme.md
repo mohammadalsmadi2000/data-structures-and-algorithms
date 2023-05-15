@@ -10,6 +10,7 @@ Given two linked lists list1 and list2, implement a function zipLists that combi
 ### Examples Visualization
 
 ![t1-5088](https://user-images.githubusercontent.com/60603704/235455259-46b1c28b-3c09-4224-8755-043f92c77584.png)
+
 Example 1:
 
 ```
