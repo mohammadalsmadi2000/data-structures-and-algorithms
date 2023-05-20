@@ -123,29 +123,21 @@ class BinarySearchTree(BinaryTree):
             return self.contains_helper(node.right, value)
         return False
 
-
-# Testing the functionality
-# Instantiate an empty tree
 tree = BinarySearchTree()
 
-# Instantiate a tree with a single root node
 tree.root = Node(5)
 
-# Add left and right children to the root node
 tree.root.left = Node(3)
 tree.root.right = Node(7)
 
-# Add values to the tree
 tree.add(1)
 tree.add(4)
 tree.add(6)
 tree.add(9)
 
-# Perform traversals
-print("Preorder Traversal:", tree.preorder_traversal())  # [5, 3, 1, 4, 7, 6, 9]
-print("Inorder Traversal:", tree.inorder_traversal())    # [1, 3, 4, 5, 6, 7, 9]
-print("Postorder Traversal:", tree.postorder_traversal())  # [1, 4, 3, 6, 9, 7, 5]
+print("Preorder Traversal:", tree.preorder_traversal()) 
+print("Inorder Traversal:", tree.inorder_traversal())    
+print("Postorder Traversal:", tree.postorder_traversal())  
 
-# Test the 'contains' method
-print("Contains 6:", tree.contains(6))  # True
-print("Contains 2:", tree.contains(2))  # False
+print("Contains 6:", tree.contains(6))  
+print("Contains 2:", tree.contains(2))  
