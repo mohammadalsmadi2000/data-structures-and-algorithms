@@ -6,6 +6,10 @@ The `BinarySearchTree` class is a subclass of the `BinaryTree` class and represe
 
 The problem domain for the `BinarySearchTree` class is to efficiently store and search for values in a binary search tree. It should maintain the properties of a binary search tree, where the left child node has a value less than the parent node, and the right child node has a value greater than or equal to the parent node.
 
+## Visual 
+![download](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/9dac9f8a-0764-42a6-ad9b-d1b1958ee798)
+
+
 ### Algorithm
 
 The `BinarySearchTree` class adds the following methods to the `BinaryTree` class:
