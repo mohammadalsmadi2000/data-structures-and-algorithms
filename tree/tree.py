@@ -9,143 +9,223 @@ class Node:
 
 
 class BinaryTree:
-    def __init__(self):
-        """
-        Initialize an empty binary tree.
-        """
-        self.root = None
+    """
+    Represents a binary tree.
 
-    def preorder_traversal(self):
-        """
-        Perform a preorder traversal of the binary tree.
-        Returns a list of values in the traversal order.
-        """
-        result = []
-        if self.root:
-            self.preorder(self.root, result)
-        return result
+    Attributes:
+        root (Node): The root node of the binary tree.
+    """
 
-    def preorder(self, node, result):
-        """
-        Helper function for preorder traversal.
-        """
-        result.append(node.value)
-        if node.left:
-            self.preorder(node.left, result)
-        if node.right:
-            self.preorder(node.right, result)
+    def __init__(self, root=None):
+        self.root = root
 
-    def inorder_traversal(self):
+    def pre_order_traversal(self, start, traversal):
         """
-        Perform an inorder traversal of the binary tree.
-        Returns a list of values in the traversal order.
-        """
-        result = []
-        if self.root:
-            self.inorder(self.root, result)
-        return result
+        Performs a pre-order traversal of the binary tree.
 
-    def inorder(self, node, result):
-        """
-        Helper function for inorder traversal.
-        """
-        if node.left:
-            self.inorder(node.left, result)
-        result.append(node.value)
-        if node.right:
-            self.inorder(node.right, result)
+        Args:
+            start (Node): The starting node for traversal.
+            traversal (list): The list to store the traversal results.
 
-    def postorder_traversal(self):
+        Returns:
+            list: The pre-order traversal of the binary tree.
         """
-        Perform a postorder traversal of the binary tree.
-        Returns a list of values in the traversal order.
-        """
-        result = []
-        if self.root:
-            self.postorder(self.root, result)
-        return result
+        if start:
+            traversal.append(start.value)
+            traversal = self.pre_order_traversal(start.left, traversal)
+            traversal = self.pre_order_traversal(start.right, traversal)
+        return traversal
 
-    def postorder(self, node, result):
+    def in_order_traversal(self, start, traversal):
         """
-        Helper function for postorder traversal.
+        Performs an in-order traversal of the binary tree.
+
+        Args:
+            start (Node): The starting node for traversal.
+            traversal (list): The list to store the traversal results.
+
+        Returns:
+            list: The in-order traversal of the binary tree.
         """
-        if node.left:
-            self.postorder(node.left, result)
-        if node.right:
-            self.postorder(node.right, result)
-        result.append(node.value)
+        if start:
+            traversal = self.in_order_traversal(start.left, traversal)
+            traversal.append(start.value)
+            traversal = self.in_order_traversal(start.right, traversal)
+        return traversal
+
+    def post_order_traversal(self, start, traversal):
+        """
+        Performs a post-order traversal of the binary tree.
+
+        Args:
+            start (Node): The starting node for traversal.
+            traversal (list): The list to store the traversal results.
+
+        Returns:
+            list: The post-order traversal of the binary tree.
+        """
+        if start:
+            traversal = self.post_order_traversal(start.left, traversal)
+            traversal = self.post_order_traversal(start.right, traversal)
+            traversal.append(start.value)
+        return traversal
+
 
 
 class BinarySearchTree(BinaryTree):
+    """
+    Represents a binary search tree, a subclass of BinaryTree.
+
+    Methods:
+        add(value): Adds a new node with the given value to the binary search tree.
+        contains(value): Checks if the binary search tree contains a node with the given value.
+
+    Inherited Methods:
+        pre_order_traversal(start, traversal): Performs a pre-order traversal of the binary tree.
+        in_order_traversal(start, traversal): Performs an in-order traversal of the binary tree.
+        post_order_traversal(start, traversal): Performs a post-order traversal of the binary tree.
+    """
+
+    def __init__(self, root=None):
+        super().__init__(root)
+
     def add(self, value):
         """
-        Add a new node with the given value to the binary search tree.
-        The node is inserted in the correct location based on the value.
+        Adds a new node with the given value in the correct location in the binary search tree.
+
+        Args:
+            value: The value to be added to the binary search tree.
         """
         if not self.root:
             self.root = Node(value)
         else:
-            self.add_helper(self.root, value)
+            self._add_helper(self.root, value)
 
-    def add_helper(self, node, value):
+    def _add_helper(self, node, value):
         """
-        Helper function for adding a node to the binary search tree.
+        A helper method for the add method.
+
+        Recursively finds the correct location to add the new node in the binary search tree.
+
+        Args:
+            node (Node): The current node being examined.
+            value: The value to be added to the binary search tree.
         """
         if value < node.value:
             if node.left:
-                self.add_helper(node.left, value)
+                self._add_helper(node.left, value)
             else:
                 node.left = Node(value)
         else:
             if node.right:
-                self.add_helper(node.right, value)
+                self._add_helper(node.right, value)
             else:
                 node.right = Node(value)
 
     def contains(self, value):
         """
-        Check if the binary search tree contains a node with the given value.
-        Returns True if the value is found, False otherwise.
-        """
-        if self.root:
-            return self.contains_helper(self.root, value)
-        return False
+        Checks if the binary search tree contains a node with the given value.
 
-    def contains_helper(self, node, value):
+        Args:
+            value: The value to be checked.
+
+        Returns:
+            bool: True if the value exists in the binary search tree, False otherwise.
         """
-        Helper function for checking if a value is contained in the binary search tree.
+        return self._contains_helper(self.root, value)
+
+    def _contains_helper(self, node, value):
         """
+        A helper method for the contains method.
+
+        Recursively searches for the value in the binary search tree.
+
+        Args:
+            node (Node): The current node being examined.
+            value: The value to be searched.
+
+        Returns:
+            bool: True if the value exists in the binary search tree, False otherwise.
+        """
+        if not node:
+            return False
+
         if node.value == value:
             return True
-        elif value < node.value and node.left:
-            return self.contains_helper(node.left, value)
-        elif value > node.value and node.right:
-            return self.contains_helper(node.right, value)
-        return False
+        elif value < node.value:
+            return self._contains_helper(node.left, value)
+        else:
+            return self._contains_helper(node.right, value)
 
 
-# Testing the functionality
-# Instantiate an empty tree
-tree = BinarySearchTree()
+# Testing the functionality of BinaryTree
+# Test 1: Can successfully instantiate an empty tree
+empty_tree = BinaryTree()
+assert empty_tree.root is None
 
-# Instantiate a tree with a single root node
-tree.root = Node(5)
+# Test 2: Can successfully instantiate a tree with a single root node
+single_node_tree = BinaryTree(Node(1))
+assert single_node_tree.root.value == 1
 
-# Add left and right children to the root node
-tree.root.left = Node(3)
-tree.root.right = Node(7)
+# Test 3: For a Binary Search Tree, can successfully add a left child and right child properly to a node
+bst_tree = BinaryTree(Node(10))
+bst_tree.root.left = Node(5)
+bst_tree.root.right = Node(15)
+assert bst_tree.root.left.value == 5
+assert bst_tree.root.right.value == 15
 
-# Add values to the tree
-tree.add(1)
-tree.add(4)
-tree.add(6)
-tree.add(9)
+# Test 4: Can successfully return a collection from a pre-order traversal
+pre_order_traversal = bst_tree.pre_order_traversal(bst_tree.root, [])
+assert pre_order_traversal == [10, 5, 15]
 
-# Perform traversals
-print("Preorder Traversal:", tree.preorder_traversal())  # [5, 3, 1, 4, 7, 6, 9]
-print("Inorder Traversal:", tree.inorder_traversal())    # [1, 3, 4, 5, 6, 7, 9]
-print("Postorder Traversal:", tree.postorder_traversal())  # [1, 4, 3, 6, 9, 7, 5]
+# Test 5: Can successfully return a collection from an in-order traversal
+in_order_traversal = bst_tree.in_order_traversal(bst_tree.root, [])
+assert in_order_traversal == [5, 10, 15]
 
-# Test the 'contains' method
-print("Contains 6:", tree.contains(6))  # True
-print("Contains 2:", tree.contains(2))  # False
+# Test 6: Can successfully return a collection from a post-order traversal
+post_order_traversal = bst_tree.post_order_traversal(bst_tree.root, [])
+assert post_order_traversal == [5, 15, 10]
+
+
+# Testing the functionality of BinarySearchTree
+# Test 1: Can successfully instantiate an empty tree
+empty_tree = BinarySearchTree()
+assert empty_tree.root is None
+
+# Test 2: Can successfully instantiate a tree with a single root node
+single_node_tree = BinarySearchTree(Node(1))
+assert single_node_tree.root.value == 1
+
+# Test 3: For a Binary Search Tree, can successfully add a left child and right child properly to a node
+bst_tree = BinarySearchTree()
+bst_tree.add(10)
+bst_tree.add(5)
+bst_tree.add(15)
+assert bst_tree.root.value == 10
+assert bst_tree.root.left.value == 5
+assert bst_tree.root.right.value == 15
+
+# Test 4: Can successfully return a collection from a pre-order traversal
+pre_order_traversal = bst_tree.pre_order_traversal(bst_tree.root, [])
+assert pre_order_traversal == [10, 5, 15]
+
+# Test 5: Can successfully return a collection from an in-order traversal
+in_order_traversal = bst_tree.in_order_traversal(bst_tree.root, [])
+assert in_order_traversal == [5, 10, 15]
+
+# Test 6: Can successfully return a collection from a post-order traversal
+post_order_traversal = bst_tree.post_order_traversal(bst_tree.root, [])
+assert post_order_traversal == [5, 15, 10]
+
+# Test 7: Returns True for the contains method, given an existing node value
+assert bst_tree.contains(10) is True
+assert bst_tree.contains(5) is True
+assert bst_tree.contains(15) is True
+
+# Test 8: Returns False for the contains method, given a non-existing node value
+assert bst_tree.contains(3) is False
+assert bst_tree.contains(20) is False
+
+
+# All tests passed
+print("All tests passed!")
