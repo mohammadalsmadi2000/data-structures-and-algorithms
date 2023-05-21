@@ -6,6 +6,10 @@ The `BinaryTree` class represents a binary tree data structure. It allows for th
 
 The problem domain for the `BinaryTree` class is to efficiently store and traverse a binary tree. The class should have properties for the value stored in each node, as well as the left and right child nodes.
 
+## Visual 
+![tree_1_qw3am1](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/5d51f35a-9c08-44e7-872a-4eecdf2d2ada)
+
+
 ### Algorithm
 
 1. **Pre-order traversal:** Visit the root, then traverse the left subtree, and finally traverse the right subtree.
