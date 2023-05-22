@@ -1,6 +1,10 @@
 ## Problem Domain
 Given a binary tree with numeric values, we need to find the maximum value stored in the tree.
 
+## Visual 
+![binary-tree](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/26680ab8-b62a-4b91-b838-8b6a93176c03)
+
+
 ## Algorithm
 1. Initialize the `find_maximum_value` method.
 2. Check if the tree has a root node. If not, return `None` to indicate an empty tree.
