@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, value):
         """
@@ -91,6 +94,31 @@ class BinaryTree:
             max_value = right_max
 
         return max_value
+    
+    def breadth_first(self):
+        """
+        Performs a breadth-first traversal of the binary tree and returns a list of values encountered.
+
+        Returns:
+            list: A list of values encountered in the tree in the order they were encountered.
+        """
+        if not self.root:
+            return []
+
+        traversal = []
+        queue = deque()
+        queue.append(self.root)
+
+        while queue:
+            node = queue.popleft()
+            traversal.append(node.value)
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+        return traversal
 
 
 class BinarySearchTree(BinaryTree):
@@ -252,7 +280,7 @@ assert bst_tree.contains(20) is False
 
 
 # All tests passed
-print("All tests passed!")
+print("Code Challenge 15 Test , All tests passed!")
 
 # Create a binary tree with numeric values
 tree = BinaryTree()
@@ -267,3 +295,18 @@ tree.root.right.right = Node(11)
 # Test the find_maximum_value method
 maximum_value = tree.find_maximum_value()
 print("Maximum value:", maximum_value)
+
+
+# Create a binary tree
+tree = BinaryTree(Node(2))
+tree.root.left = Node(7)
+tree.root.right = Node(5)
+tree.root.left.left = Node(2)
+tree.root.left.right = Node(6)
+tree.root.right.right = Node(9)
+tree.root.left.right.left = Node(5)
+tree.root.left.right.right = Node(11)
+tree.root.right.right.left = Node(4)
+
+result = tree.breadth_first()
+print("breadth first :",result)
