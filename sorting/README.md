@@ -6,6 +6,7 @@ Insertion Sort is a simple sorting algorithm that builds the final sorted array 
 ## Visual Step-through:
 
  `[8,4,23,42,16,15]` 
+ 
 
 | Iteration | Array                 |
 |-----------|-----------------------|
@@ -16,6 +17,7 @@ Insertion Sort is a simple sorting algorithm that builds the final sorted array 
 | 5         | [4, 8, 16, 23, 42]    |
 | 6         | [4, 8, 15, 16, 23, 42]|
 
+![Screen Recording - June 12, 2023](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/8b856b62-b549-4c7c-9103-1fa722440054)
 
 **Efficiency**
 
