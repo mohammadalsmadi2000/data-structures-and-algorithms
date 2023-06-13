@@ -23,9 +23,8 @@ Insertion Sort is a simple sorting algorithm that builds the final sorted array 
 
 - Time Complexity: `O(n^2)`
 
-- Space Complexity: `O(1)`
-  - No additional space is being created.
-
+- Space Complexity: `O(n) in the worst case`
+ 
 
 
 
