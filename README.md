@@ -11,5 +11,7 @@
 |linked-list-kth  | [linked-list-kth](./linked-list-kth/Whiteboard.md)
 |linked_list_zip  | [linked_list_zip](./linked_list_zip/Readme.md)
 |Sorting Comparisons | [Sorting Comparisons](./Sorting_Comparisons/README.md)
+|Hash | [Hash](./Hash/Readme.md)
+
 
 
