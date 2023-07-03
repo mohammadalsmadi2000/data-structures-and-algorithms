@@ -36,4 +36,4 @@ class Hashtable:
         for bucket in self.table:
             for k, _ in bucket:
                 keys.append(k)
-        return list(set(keys))
+        return keys
