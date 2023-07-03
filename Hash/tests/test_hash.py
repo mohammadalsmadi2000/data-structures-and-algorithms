@@ -20,7 +20,10 @@ def test_has(hashtable):
 def test_keys(hashtable):
     hashtable.set("key1", "value1")
     hashtable.set("key2", "value2")
-    assert hashtable.keys() == ["key1", "key2"]
+    keys = hashtable.keys()
+    keys.sort()
+    assert keys == ["key1", "key2"]
+
 
 def test_collision(hashtable):
 
