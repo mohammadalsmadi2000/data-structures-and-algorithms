@@ -27,4 +27,7 @@ def test_tree_intersection():
     tree2.right.left.left = TreeNode(175)
     tree2.left.left.right = TreeNode(500)
 
-    assert tree_intersection(tree1, tree2) == {100, 160, 125, 175, 200, 350, 500}
+    expected = [100, 160, 125, 175, 200, 350, 500]
+    actual = tree_intersection(tree1, tree2)
+
+    assert sorted(actual) == sorted(expected)
