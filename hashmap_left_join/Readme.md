@@ -18,6 +18,7 @@ The `hashmap-left-join` function has a time complexity of O(n), where n is the n
 5. Append the row to the `result` list.
 6. After iterating through all keys in the first hashmap, return the `result` list.
 
+## Code
 
 ```python
 def left_join(hashmap1, hashmap2):
