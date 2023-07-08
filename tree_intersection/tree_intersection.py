@@ -23,22 +23,22 @@ def tree_intersection(tree1, tree2):
         tree2: The root node of the second binary tree.
 
     Returns:
-        A set of values found in both trees.
+        A list of values found in both trees.
     """
-    values1 = set()
-    common_values = set()
+    values1 = []
+    common_values = []
 
     def traverse_tree(node, values):
         """
-        Traverses the binary tree and adds its values to the set.
+        Traverses the binary tree and adds its values to the list.
 
         Args:
             node: The current node being traversed.
-            values: The set to store the values.
+            values: The list to store the values.
         """
         if node is None:
             return
-        values.add(node.value)
+        values.append(node.value)
         traverse_tree(node.left, values)
         traverse_tree(node.right, values)
 
@@ -46,7 +46,7 @@ def tree_intersection(tree1, tree2):
 
     def check_common_values(node):
         """
-        Checks if each value of the second tree exists in the first tree's values set.
+        Checks if each value of the second tree exists in the first tree's values list.
 
         Args:
             node: The current node being checked.
@@ -55,7 +55,7 @@ def tree_intersection(tree1, tree2):
         if node is None:
             return
         if node.value in values1:
-            common_values.add(node.value)
+            common_values.append(node.value)
         check_common_values(node.left)
         check_common_values(node.right)
 
