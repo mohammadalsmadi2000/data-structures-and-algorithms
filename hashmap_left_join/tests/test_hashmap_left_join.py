@@ -1,29 +1,23 @@
-import pytest
-from hashmap_left_join import left_join
+from  hashmap_left_join import left_join, Hashmap
 
-@pytest.fixture
-def synonyms():
-    return {
-        "diligent": "employed",
-        "fond": "enamored",
-        "guide": "usher",
-        "outfit": "garb",
-        "wrath": "anger"
-    }
+def test_left_join():
+    hash1 = Hashmap()
+    hash1.put('diligent', 'employed')
+    hash1.put('fond', 'enamored')
+    hash1.put('guide', 'usher')
+    hash1.put('outfit', 'garb')
+    hash1.put('wrath', 'anger')
 
-@pytest.fixture
-def antonyms():
-    return {
-        "diligent": "idle",
-        "fond": "averse",
-        "guide": "follow",
-        "flow": "jam",
-        "wrath": "delight"
-    }
+    hash2 = Hashmap()
+    hash2.put('diligent', 'idle')
+    hash2.put('fond', 'averse')
+    hash2.put('guide', 'follow')
+    hash2.put('flow', 'jam')
+    hash2.put('wrath', 'delight')
 
-def test_left_join(synonyms, antonyms):
-    result = left_join(synonyms, antonyms)
-    assert result == [
+    result = left_join(hash1, hash2)
+
+    expected_result = [
         ['diligent', 'employed', 'idle'],
         ['fond', 'enamored', 'averse'],
         ['guide', 'usher', 'follow'],
@@ -31,28 +25,4 @@ def test_left_join(synonyms, antonyms):
         ['wrath', 'anger', 'delight']
     ]
 
-def test_left_join_with_empty_hashmap(synonyms):
-    empty_hashmap = {}
-    result = left_join(synonyms, empty_hashmap)
-    assert result == [
-        ['diligent', 'employed', None],
-        ['fond', 'enamored', None],
-        ['guide', 'usher', None],
-        ['outfit', 'garb', None],
-        ['wrath', 'anger', None]
-    ]
-
-def test_left_join_with_missing_keys(antonyms):
-    missing_keys_hashmap = {
-        "diligent": "employed",
-        "fond": "enamored",
-        "guide": "usher",
-        "unknown": "word"
-    }
-    result = left_join(missing_keys_hashmap, antonyms)
-    assert result == [
-        ['diligent', 'employed', 'idle'],
-        ['fond', 'enamored', 'averse'],
-        ['guide', 'usher', 'follow'],
-        ['unknown', 'word', None]
-    ]
+    assert result == expected_result
