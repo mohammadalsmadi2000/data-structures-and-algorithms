@@ -12,11 +12,11 @@ class Graph:
         return tempVertices
 
     def add_edge(self, V1, V2, W):
-        if (not V1 in self.edj_list.keys()) or (not V2 in self.edj_list.keys()):
+        if (V1 not in self.edj_list) or (V2 not in self.edj_list):
             raise ValueError("This vertex does not exist")
 
-        edge1 = Edge(V2, W)
-        edge2 = Edge(V1, W)
+        edge1 = (V2, W)
+        edge2 = (V1, W)
 
         self.edj_list[V1].append(edge1)
         self.edj_list[V2].append(edge2)
@@ -29,3 +29,25 @@ class Graph:
 
     def size(self):
         return len(self.edj_list)
+
+# CC 36
+    def breadth_first(self, start_vertex):
+        visited = set()
+        result = []
+        to_visit = [start_vertex]
+        index = 0
+
+        visited.add(start_vertex)
+
+        while index < len(to_visit):
+            current_vertex = to_visit[index]
+            result.append(str(current_vertex))  
+
+            for neighbor, _ in self.edj_list[current_vertex]:
+                if neighbor not in visited:
+                    to_visit.append(neighbor)
+                    visited.add(neighbor)
+
+            index += 1
+
+        return result
