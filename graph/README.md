@@ -2,6 +2,7 @@
 
 This is a simple implementation of a graph data structure in Python.
 # graph-breadth-first
+## Whiteboard
 [Link to the BFS page](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/blob/main/graph/breadth_first.md)
 
 
