@@ -7,4 +7,4 @@
 
 ## Matching parentheses
 
-![Top10-2](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/0fd34211-98bd-4c89-8f74-009ab4f77a6e)
+![Top10-2](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/0636e225-09ad-40e7-99e0-e8f73536411f)
