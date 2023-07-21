@@ -6,6 +6,8 @@ The problem involves implementing a breadth-first traversal algorithm for a grap
 
 Visual representation of a simple graph with vertices and edges.
 
+![breadth_first_search_1](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/8a50f119-0b4d-445f-a3a3-1c0e21164760)
+
 
 ## Algorithm:
 
