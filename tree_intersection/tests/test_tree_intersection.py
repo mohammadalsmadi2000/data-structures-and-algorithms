@@ -1,5 +1,5 @@
-# test_tree_intersection.py
-from tree_intersection import TreeNode, tree_intersection
+from Hash.hash import Hashtable  # Correct the import statement to use the Hashtable class
+from tree_intersection.tree_intersection import TreeNode, tree_intersection
 
 def test_tree_intersection():
     # Test case 1
