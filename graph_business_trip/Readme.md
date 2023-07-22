@@ -4,6 +4,9 @@
 
 Given a graph representing direct flights and their costs between cities, and an array of city names representing a business trip itinerary, the task is to determine whether the trip is possible with direct flights and calculate the total cost of the trip if possible.
 
+## Visual :
+![GraphDay27](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/ef2a45a3-b1d1-45e3-bb70-55e75876e46f)
+
 ## Class: Graph
 
 ### Properties
