@@ -73,3 +73,7 @@ class Hashtable:
             list: A list of all keys in the hashtable.
         """
         return [key for bucket in self.table for key in bucket.keys()]
+
+
+if __name__=="__main__":
+    pass

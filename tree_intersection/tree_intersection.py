@@ -1,64 +1,37 @@
+from Hash.hash import Hashtable
 class TreeNode:
-    """
-    Represents a node in a binary tree.
-    """
     def __init__(self, value):
-        """
-        Initializes a new instance of the TreeNode class.
-
-        Args:
-            value: The value of the node.
-        """
         self.value = value
         self.left = None
         self.right = None
 
+def in_order_traversal(root, values):
+
+    if root is not None:
+        in_order_traversal(root.left, values)
+        values.append(root.value)
+        in_order_traversal(root.right, values)
 
 def tree_intersection(tree1, tree2):
-    """
-    Finds the common values in two binary trees.
-
-    Args:
-        tree1: The root node of the first binary tree.
-        tree2: The root node of the second binary tree.
-
-    Returns:
-        A list of values found in both trees.
-    """
+   
     values1 = []
-    common_values = []
+    in_order_traversal(tree1, values1)
 
-    def traverse_tree(node, values):
-        """
-        Traverses the binary tree and adds its values to the list.
+    values2 = []
+    in_order_traversal(tree2, values2)
 
-        Args:
-            node: The current node being traversed.
-            values: The list to store the values.
-        """
-        if node is None:
-            return
-        values.append(node.value)
-        traverse_tree(node.left, values)
-        traverse_tree(node.right, values)
+    set1 = set(values1)
+    set2 = set(values2)
 
-    traverse_tree(tree1, values1)
+    intersection = set()
+    hashtable = Hashtable()
 
-    def check_common_values(node):
-        """
-        Checks if each value of the second tree exists in the first tree's values list.
+    for value in set1:
+        if hashtable.get(value) is None:
+            hashtable.set(value, 1)
 
-        Args:
-            node: The current node being checked.
-        """
-        nonlocal common_values
-        if node is None:
-            return
-        if node.value in values1:
-            common_values.append(node.value)
-        check_common_values(node.left)
-        check_common_values(node.right)
+    for value in set2:
+        if hashtable.get(value) is not None:
+            intersection.add(value)
 
-    check_common_values(tree2)
-
-    return common_values
+    return intersection
