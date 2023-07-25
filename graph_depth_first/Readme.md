@@ -2,6 +2,7 @@
 The class `Graph` represents a simple directed graph. It allows adding edges between nodes and performing a depth-first traversal starting from a given node.
 ## Visual 
 
+![Day28Example](https://github.com/mohammadalsmadi2000/data-structures-and-algorithms/assets/60603704/785f2d5e-e47f-42ac-a47b-68e5fa335e21)
 
 ### Algorithm:
 1. Initialize an empty graph with an empty dictionary to store nodes and their adjacent nodes.
